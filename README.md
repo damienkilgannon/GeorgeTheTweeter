@@ -12,8 +12,8 @@
 > If your `README` has a lot of info, section headers might be nice.
 
 - [Clone](#clone)
-- [Run Locally](#runlocally)
-- [Deploying to Heroku](#deployingtoheroku)
+- [Run Locally](#run-locally)
+- [Deploying to Heroku](#deploying-to-heroku)
 - [License](#license)
 
 ---
