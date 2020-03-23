@@ -17,10 +17,10 @@ class FavRetweetListener(tweepy.StreamListener):
         self.api = api
         self.me = api.me()
         
-        LIKE = strtobool(os.getenv("LIKE", "FALSE"))
-        RETWEET = strtobool(os.getenv("RETWEET", "FALSE"))
-        COMMENT = strtobool(os.getenv("COMMENT", "FALSE"))
-        MSG = os.getenv("MSG")
+        self.like = strtobool(os.getenv("LIKE", "FALSE"))
+        self.retweet = strtobool(os.getenv("RETWEET", "FALSE"))
+        self.comment = strtobool(os.getenv("COMMENT", "FALSE"))
+        self.msg = os.getenv("MSG")
 
     def on_status(self, tweet):
         logger.info("Processing Tweet")
@@ -28,25 +28,25 @@ class FavRetweetListener(tweepy.StreamListener):
             tweet.user.id == self.me.id:
             # This tweet is a reply or I'm its author, ignore
             return
-        if not tweet.favorited and LIKE is True:
+        if not tweet.favorited and self.like is True:
             # Mark it as Liked, since we have not done it yet
             try:
                 tweet.favorite()
                 logger.debug("Liked")
             except Exception as e:
                 logger.error("Error on fav", exc_info=True)
-        if not tweet.retweeted and RETWEET is True:
+        if not tweet.retweeted and self.retweet is True:
             # Retweet, since we have not retweeted it yet
             try:
                 tweet.retweet()
                 logger.debug("ReTweeted")
             except Exception as e:
                 logger.error("Error on retweet", exc_info=True)
-        if not tweet.retweeted and COMMENT is True:
+        if not tweet.retweeted and self.comment is True:
             # Comment
             try:
                 logger.info("Commenting ...")
-                reply = "@" + tweet.author._json['screen_name'] + " " + MSG
+                reply = "@" + tweet.author._json['screen_name'] + " " + self.msg
                 self.api.update_status(status=reply, in_reply_to_status_id=tweet.id, auto_populate_reply_metadata=True) 
                 logger.debug("Commented")               
             except Exception as e:
