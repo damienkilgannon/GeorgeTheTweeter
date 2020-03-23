@@ -5,6 +5,7 @@ import os
 import logging
 import tweepy
 
+from time import sleep
 from distutils.util import strtobool
 
 from config import create_api
@@ -63,7 +64,7 @@ def main(keywords):
     stream = tweepy.Stream(api.auth, tweets_listener)
     logger.info("Stream is now running ...")
     stream.filter(track=keywords, languages=["en"], async=True)
-    time.sleep(os.getenv("STREAM_TIME", 5))
+    sleep(os.getenv("STREAM_TIME", 5))
     logger.info("... stream is now stopping.")
     stream.disconnect()
     return
@@ -76,4 +77,4 @@ if __name__ == "__main__":
         logger.info("Starting Stream ...")
         main([HASHTAG])
         logger.info("Waiting on next cycle to start stream again ...")
-        time.sleep(THROTTLE)
+        sleep(THROTTLE)
