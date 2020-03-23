@@ -24,9 +24,6 @@
 
 ### Run Locally
 
-
-> update and install this package first
-
 ```
 $ pip install -r requirements.txt
 $ export KEY="my API key"
