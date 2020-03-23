@@ -63,7 +63,7 @@ def main(keywords):
     stream = tweepy.Stream(api.auth, tweets_listener)
     stream.filter(track=keywords, languages=["en"])
     logger.info("Stream is now running ...")
-    time.sleep(STREAM_TIME)
+    time.sleep(os.getenv("STREAM_TIME", 1))
     logger.info("... stream is now stopping.")
     stream.disconnect()
     return
@@ -71,7 +71,6 @@ def main(keywords):
 if __name__ == "__main__":
     HASHTAG = os.getenv("HASHTAG", "#sleep")
     THROTTLE = os.getenv("THROTTLE", 21600)
-    STREAM_TIME = os.getenv("STREAM_TIME", 10)
 
     while True:
         logger.info("Starting Stream ...")
