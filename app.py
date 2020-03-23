@@ -28,21 +28,21 @@ class FavRetweetListener(tweepy.StreamListener):
             tweet.user.id == self.me.id:
             # This tweet is a reply or I'm its author, ignore
             return
-        if not tweet.favorited and self.like is True:
+        if not tweet.favorited and self.like == True:
             # Mark it as Liked, since we have not done it yet
             try:
                 tweet.favorite()
                 logger.debug("Liked")
             except Exception as e:
                 logger.error("Error on fav", exc_info=True)
-        if not tweet.retweeted and self.retweet is True:
+        if not tweet.retweeted and self.retweet == True:
             # Retweet, since we have not retweeted it yet
             try:
                 tweet.retweet()
                 logger.debug("ReTweeted")
             except Exception as e:
                 logger.error("Error on retweet", exc_info=True)
-        if not tweet.retweeted and self.comment is True:
+        if not tweet.retweeted and self.comment == True:
             # Comment
             try:
                 logger.info("Commenting ...")
