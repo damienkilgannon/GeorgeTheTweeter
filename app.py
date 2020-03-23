@@ -61,9 +61,9 @@ def main(keywords):
     api = create_api()
     tweets_listener = FavRetweetListener(api)
     stream = tweepy.Stream(api.auth, tweets_listener)
-    stream.filter(track=keywords, languages=["en"])
     logger.info("Stream is now running ...")
-    time.sleep(os.getenv("STREAM_TIME", 1))
+    stream.filter(track=keywords, languages=["en"], is_async=True)
+    time.sleep(os.getenv("STREAM_TIME", 5))
     logger.info("... stream is now stopping.")
     stream.disconnect()
     return
