@@ -9,8 +9,6 @@
 
 ## Table of Contents (Optional)
 
-> If your `README` has a lot of info, section headers might be nice.
-
 - [Clone](#clone)
 - [Run Locally](#run-locally)
 - [Deploying to Heroku](#deploying-to-heroku)
@@ -43,7 +41,7 @@ $ export COMMENT="set to true if you want to comment tweets found"
 $ export MSG="set this to the text that you wish to use when replying to a tweet (only used if COMMENT=true)"
 ```
 
-> change throttle and duration of the stream listener by setting the following env
+> change throttle and duration of the Tweepy stream listener by setting the following env
 
 ```
 $ export THROTTLE="set this to the time in secs between each run of the stream listener"
