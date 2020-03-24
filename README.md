@@ -20,6 +20,8 @@
 
 - Clone this repo to your local machine using `git@github.com:damienkilgannon/GeorgeTheTweeter.git`
 
+---
+
 ### Run Locally
 
 ```
