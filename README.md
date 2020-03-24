@@ -47,7 +47,7 @@ $ export MSG="set this to the text that you wish to use when replying to a tweet
 
 ```
 $ export THROTTLE="set this to the time in secs between each run of the stream listener"
-$ export THROTTLE="set this to the time in secs of lenght of each run"
+$ export STREAM_TIME="set this to the time in secs of lenght of each run"
 ```
 
 ---
