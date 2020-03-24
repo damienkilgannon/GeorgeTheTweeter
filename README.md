@@ -7,7 +7,7 @@
 
 ---
 
-## Table of Contents (Optional)
+## Table of Contents
 
 - [Clone](#clone)
 - [Run Locally](#run-locally)
