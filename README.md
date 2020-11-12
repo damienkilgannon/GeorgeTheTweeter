@@ -1,4 +1,4 @@
-# GeorgeTheTweeter
+# Twitter Bot
 
 > A Simple, Controllable, Configurable Twitter Bot
 
@@ -18,7 +18,7 @@
 
 ### Clone
 
-- Clone this repo to your local machine using `git@github.com:damienkilgannon/GeorgeTheTweeter.git`
+- Clone this repo to your local machine using `git@github.com:damienkilgannon/twitter-bot.git`
 
 ---
 
